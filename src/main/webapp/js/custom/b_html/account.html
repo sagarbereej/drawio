@@ -1,0 +1,76 @@
+<style>
+    ._a_table_1,
+    ._a_th_1,
+    ._a_td_1 {
+        text-align: left;
+    }
+    ._a_td_1_btn{
+        text-align: right;
+    }
+    ._a_table,
+    ._a_th,
+    ._a_td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding-inline: 5px;
+        padding-block: 2px;
+    }
+</style>
+<div id="accountTable">
+    <form>
+        <table class="_a_table_1">
+            <tbody>
+                <tr class="_a_tr_1">
+                    <th class="_a_th_1">
+                        <input type="hidden" id="account-id">
+                        <label for="account-name">Account Name:</label>
+                    </th>
+                    <td class="_a_td_1">
+                        <input type="text" id="account-name">
+                    </td>
+                </tr>
+                <tr class="_a_tr_1">
+                    <th class="_a_th_1">
+                        <label for="account-key-id">Account Secret Key ID:</label>
+                    </th>
+                    <td class="_a_td_1">
+                        <input type="text" id="account-key-id">
+                    </td>
+                </tr>
+                <tr class="_a_tr_1">
+                    <th class="_a_th_1">
+                        <label for="account-key">Account Secret Key:</label>
+                    </th>
+                    <td class="_a_td_1">
+                        <input type="password" id="account-key">
+                    </td>
+                </tr>
+                <tr class="_a_tr_1">
+                    <th class="_a_th_1"></th>
+                    <td class="_a_td_1_btn">
+                        <button type="button" class="geBtn gePrimaryBtn" id="btnCreateOrUpdate" onclick="createOrUpdate()">Add</button>
+                        <button type="button" class="geBtn" onclick="resetForm()">Cancel</button>
+                    </th>
+                </tr>
+              
+                    
+            </tbody>
+        </table>
+    </form>
+    <br>
+    <table class="_a_table">
+        <thead>
+            <tr class="_a_tr">
+                <th class="_a_th">Default</th>
+                <th class="_a_th">Sr.</th>
+                <!-- <th class="_a_th">ID</th> -->
+                <th class="_a_th">Name</th>
+                <th class="_a_th">Secret Key ID</th>
+                <th class="_a_th">Secret Key</th>
+                <th class="_a_th">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="accounts"></tbody>
+    </table>
+</div>

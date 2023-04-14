@@ -12,11 +12,11 @@
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Business Productivity');
 		this.addAWS3BusinessProductivityPalette();
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Compute');
-		this.addAWS3ComputePalette();
+		this.b_addAWS3ComputePalette();//sk
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Contact Center');
 		this.addAWS3ContactCenterPalette();
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Database');
-		this.addAWS3DatabasePalette();
+		this.b_addAWS3DatabasePalette();//sk
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Desktop and App Streaming');
 		this.addAWS3DesktopAndAppStreamingPalette();
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Developer Tools');
@@ -26,7 +26,7 @@
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3General');
 		this.addAWS3GeneralPalette();
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Groups');
-		this.addAWS3GroupsPalette();
+		this.b_addAWS3GroupsPalette();//sk
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Internet of Things');
 		this.addAWS3InternetOfThingsPalette();
 		this.setCurrentSearchEntryLibrary('aws3', 'aws3Management Tools');

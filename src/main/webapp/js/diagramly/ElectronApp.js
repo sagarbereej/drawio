@@ -110,6 +110,7 @@ mxStencilRegistry.allowEval = false;
 	
 	App.main = async function()
 	{
+		debugger
 		// Set AutoSave delay
 		var draftSaveDelay = mxSettings.getDraftSaveDelay();
 		

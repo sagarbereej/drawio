@@ -127,6 +127,7 @@ Format.prototype.init = function()
 	ui.addListener('darkModeChanged', this.update);
 	
 	this.refresh();
+	
 };
 
 /**
@@ -206,7 +207,7 @@ Format.prototype.immediateRefresh = function()
 	{
 		evt.preventDefault();
 	}));
-
+	
 	var ss = ui.getSelectionState();
 	var containsLabel = ss.containsLabel;
 	var currentLabel = null;
@@ -252,6 +253,7 @@ Format.prototype.immediateRefresh = function()
 					currentPanel.style.display = '';
 				}
 			}
+			
 		});
 		
 		mxEvent.addListener(elt, 'click', clickHandler);
@@ -415,6 +417,7 @@ Format.prototype.immediateRefresh = function()
 		}
 		
 		addClickHandler(label3, arrangePanel, idx++, true);
+		updateCloud();//sk
 	}
 };
 
@@ -1538,6 +1541,7 @@ ArrangePanel.prototype.init = function()
 		this.addGeometry(this.container);
 		this.addEdgeGeometry(this.container);
 	
+		this.setAttributes(ss.style.shape)//sk
 		if (!ss.containsLabel || ss.edges.length == 0)
 		{
 			this.container.appendChild(this.addAngle(this.createPanel()));

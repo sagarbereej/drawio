@@ -38,6 +38,7 @@ function fileChanged()
 
 function main()
 {
+	// debugger
 	if (window.parent != null && window.parent.Editor != null)
 	{
 		if (window.parent.Editor.useLocalStorage)

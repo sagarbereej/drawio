@@ -19,6 +19,10 @@ Actions.prototype.init = function()
 	var ui = this.editorUi;
 	var editor = ui.editor;
 	var graph = editor.graph;
+	_editorUi=this.editorUi;
+	_graph=this.editorUi.editor.graph;
+	_cells=this.editorUi.editor.graph.model.cells;
+
 	var isGraphEnabled = function()
 	{
 		return Action.prototype.isEnabled.apply(this, arguments) && graph.isEnabled();
@@ -1891,6 +1895,9 @@ Actions.prototype.init = function()
 			dlg.init();
 		}
 	}, null, null, 'Alt+Shift+Q').isEnabled = isGraphEnabled;
+	
+	this.menuActions= new menuActions(this,action);//sk
+
 };
 
 /**

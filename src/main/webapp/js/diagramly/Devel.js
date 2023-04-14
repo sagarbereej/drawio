@@ -65,17 +65,17 @@ if (!mxIsElectron && location.protocol !== 'http:')
 			'object-src \'none\';';
 			
 		var csp = hashes + directives;
-		var devCsp = csp.
-			// Adds script tags and loads shapes with eval
-			replace(/%script-src%/g, 'https://www.dropbox.com https://api.trello.com https://devhost.jgraph.com \'unsafe-eval\'').
-			// Adds Trello and Dropbox backend storage
-			replace(/%connect-src%/g, 'https://*.dropboxapi.com https://trello.com https://api.trello.com').
-			// Loads common.css from mxgraph
-			replace(/%style-src%/g, 'https://devhost.jgraph.com').
-			replace(/%frame-src%/g, '').
-			replace(/  /g, ' ');
+		// var devCsp = csp.
+		// 	// Adds script tags and loads shapes with eval
+		// 	replace(/%script-src%/g, 'https://www.dropbox.com https://api.trello.com https://devhost.jgraph.com "default-src *;"').
+		// 	// Adds Trello and Dropbox backend storage
+		// 	replace(/%connect-src%/g, 'https://*.dropboxapi.com https://trello.com https://api.trello.com').
+		// 	// Loads common.css from mxgraph
+		// 	replace(/%style-src%/g, 'https://devhost.jgraph.com').
+		// 	replace(/%frame-src%/g, '').
+		// 	replace(/  /g, ' ');
 
-		mxmeta(null, devCsp, 'Content-Security-Policy');
+		// mxmeta(null, devCsp, 'Content-Security-Policy');
 
 		if (urlParams['print-csp'] == '1')
 		{
@@ -154,16 +154,27 @@ mxscript(drawDevUrl + 'js/rough/rough.min.js');
 mxscript(drawDevUrl + 'js/freehand/perfect-freehand.js');
 
 // Uses grapheditor from devhost
+mxscript(drawDevUrl +'/js/custom/b_global.js');//sk
+mxscript(drawDevUrl +'/js/custom/b_Snackbar.js');//sk
 mxscript(geBasePath +'/Editor.js');
 mxscript(geBasePath +'/EditorUi.js');
 mxscript(geBasePath +'/Sidebar.js');
+mxscript(drawDevUrl +'/js/custom/b_Sidebar.js');//sk
 mxscript(geBasePath +'/Graph.js');
 mxscript(geBasePath +'/Format.js');
+mxscript(drawDevUrl +'/js/custom/b_SetAttributes.js');//sk
 mxscript(geBasePath +'/Shapes.js');
 mxscript(geBasePath +'/Actions.js');
+mxscript(drawDevUrl +'/js/custom/b_menuActions.js');//sk
 mxscript(geBasePath +'/Menus.js');
+mxscript(drawDevUrl +'/js/custom/b_LoadAttributes.js');//sk
 mxscript(geBasePath +'/Toolbar.js');
 mxscript(geBasePath +'/Dialogs.js');
+mxscript(drawDevUrl +'/js/custom/b_Dialogs.js');//sk
+mxscript(drawDevUrl +'/js/custom/b_AutoUpdate.js');//sk
+mxscript(drawDevUrl +'/js/custom/b_Monitoring.js');//sk
+mxscript(drawDevUrl +'/js/custom/b_CloudAccount.js');//sk
+mxscript(drawDevUrl +'/js/custom/b_Network.js');//sk
 
 // Loads main classes
 mxscript(drawDevUrl + 'js/diagramly/sidebar/Sidebar.js');
@@ -306,4 +317,6 @@ if (urlParams['orgChartDev'] == '1')
 mxscript(drawDevUrl + 'js/diagramly/miro/MiroImporter.js');
 
 // Mermaid to draw.io converter
-mxscript(drawDevUrl + 'js/mermaid/mermaid2drawio.js');
+// mxscript(drawDevUrl + 'js/mermaid/mermaid2drawio.js');
+
+// console.log("okok")

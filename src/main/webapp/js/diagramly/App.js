@@ -635,6 +635,7 @@ App.main = function(callback, createUi)
 {
 	try
 	{
+		// debugger
 		// Handles uncaught errors before the app is loaded
 		window.onerror = function(message, url, linenumber, colno, err)
 		{
@@ -705,7 +706,7 @@ App.main = function(callback, createUi)
 					if (CryptoJS.MD5(content).toString() != '94ebd7472449efab95e00746ea00db60')
 					{
 						console.log('Change bootstrap script MD5 in the previous line:', CryptoJS.MD5(content).toString());
-						alert('[Dev] Bootstrap script change requires update of CSP');
+						// alert('[Dev] Bootstrap script change requires update of CSP');
 					}
 				}
 				
@@ -717,7 +718,7 @@ App.main = function(callback, createUi)
 					if (CryptoJS.MD5(content).toString() != '69c25556b6237c57cdb7d017147af34b')
 					{
 						console.log('Change main script MD5 in the previous line:', CryptoJS.MD5(content).toString());
-						alert('[Dev] Main script change requires update of CSP');
+						// alert('[Dev] Main script change requires update of CSP');
 					}
 				}
 			}
@@ -3761,10 +3762,17 @@ App.prototype.showSplash = function(force)
 			this.showSplash();
 		}));
 	}
-	else if (!mxClient.IS_CHROMEAPP && (this.mode == null || force))
+	else if(_isOpenDiagramSavePopupStarting)
+	{
+		var prev = Editor.useLocalStorage;
+		_editorUi.createFile(_editorUi.defaultFilename,
+			null, null, null, null, null, null, true);
+		Editor.useLocalStorage = prev;
+	}
+	else if (!mxClient.IS_CHROMEAPP && (this.mode == null || force) )
 	{
 		var rowLimit = (serviceCount == 4) ? 2 : 3;
-		
+		// debugger
 		var dlg = new StorageDialog(this, mxUtils.bind(this, function()
 		{
 			this.hideDialog();

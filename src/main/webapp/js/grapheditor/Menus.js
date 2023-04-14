@@ -7,6 +7,7 @@
 Menus = function(editorUi)
 {
 	this.editorUi = editorUi;
+	_menus=this;//sk
 	this.menus = new Object();
 	this.init();
 	
@@ -30,7 +31,7 @@ Menus.prototype.defaultFontSize = '12';
 /**
  * Sets the default font size.
  */
-Menus.prototype.defaultMenuItems = ['file', 'edit', 'view', 'arrange', 'extras', 'help'];
+Menus.prototype.defaultMenuItems = ['file', 'edit', 'view', 'arrange', 'extras','clouder', 'help'];//sk
 
 /**
  * Adds the label menu items to the given menu and parent.
@@ -577,7 +578,10 @@ Menus.prototype.init = function()
 	})));
 	this.put('extras', new Menu(mxUtils.bind(this, function(menu, parent)
 	{
-		this.addMenuItems(menu, ['copyConnect', 'collapseExpand', '-', 'editDiagram']);
+		this.addMenuItems(menu, ['editDiagram','copyConnect', 'collapseExpand', '-' ]);
+	})));
+	this.put('clouder', new Menu(mxUtils.bind(this, function (menu, parent) {
+		this.addMenuItems(menu, ['clouderLogin', 'connectAWSAccount', 'createFromAWS', 'makeInAWS', 'makeInAzure', 'convertToAzure', 'makeInGCP', 'monitorEC2', 'clouderLogout']);//sk
 	})));
 	this.put('help', new Menu(mxUtils.bind(this, function(menu, parent)
 	{
@@ -1273,6 +1277,8 @@ Menus.prototype.createStyleChangeFunction = function(keys, values)
 			{
 				post();
 			}
+			// debugger
+			AutoFill(cells,keys, values)//sk
 			
 			this.editorUi.fireEvent(new mxEventObject('styleChanged',
 				'keys', keys, 'values', values, 'cells', cells));
@@ -1752,6 +1758,8 @@ Menus.prototype.createMenubar = function(container)
 {
 	var menubar = new Menubar(this.editorUi, container);
 	var menus = this.defaultMenuItems;
+	// debugger
+	menubar.container.innerHTML+=monitoringHTML;//sk Apply custome HTML Tags
 	
 	for (var i = 0; i < menus.length; i++)
 	{
@@ -1766,7 +1774,6 @@ Menus.prototype.createMenubar = function(container)
 			this.menuCreated(menu, elt);
 		}))(this.get(menus[i]));
 	}
-
 	return menubar;
 };
 

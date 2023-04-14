@@ -802,7 +802,13 @@ Toolbar.prototype.addMenu = function(label, tooltip, showLabels, name, c, showAl
 	var menu = this.editorUi.menus.get(name);
 	var elt = this.addMenuFunction(label, tooltip, showLabels, function()
 	{
-		menu.funct.apply(menu, arguments);
+		if (menu!=undefined) {//sk
+			menu.funct.apply(menu, arguments);
+		}
+		else{
+			_editorUi.editor.graph.model.beginUpdate();
+			_editorUi.editor.graph.model.endUpdate();
+		}
 	}, c, showAll);
 	
 	// Workaround for possible not a function
